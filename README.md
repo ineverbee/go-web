@@ -1,6 +1,6 @@
 # Go-Web
 
-First golang web project. It's just a wall where you can add whatever you want. But first you should log in with your vk account to be able to create blog posts. Also on this page there is a search to find content you like. Simple general chat will let you communicate with online users.
+First golang web project. It's just a wall where you can add whatever message with picture you want. But first you should log in with your vk account to be able to create blog posts. Also on this page there is a search to find content you like. Simple general chat will let you communicate with online users.
 
 # Stack
 
