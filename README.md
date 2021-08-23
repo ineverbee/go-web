@@ -1,12 +1,6 @@
-![big-gopher](big-gopher.png)
-
-[![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](http://opensource.org/licenses/MIT)
-[![Build Status](https://github.com/StarpTech/go-web/workflows/Go/badge.svg)](https://github.com/StarpTech/go-web/actions)
-[![Go Report Card](https://goreportcard.com/badge/github.com/StarpTech/go-web)](https://goreportcard.com/report/github.com/StarpTech/go-web)
-
 # Go-Web
 
-First golang web project
+First golang web project. It's just a wall where you can add whatever you want. But first you should log in with your vk account to be able to create blog posts. Also on this page there is a search to find content you like. Simple general chat will let you communicate with online users.
 
 # Stack
 
@@ -28,109 +22,29 @@ First golang web project
 - Bootstrap framework [Bootstrap](https://getbootstrap.com/)
 - Javascript UI library [JQuery](https://jquery.com/)
 
-# Getting Started
-
 ## Project structure
 
-Follows https://github.com/golang-standards/project-layout
+![structure](structure.png)
 
-## Building From Source
+## Run application
 
-This project requires Go +1.13 and Go module support.
+This project requires go v1.16+ to run the required services.
 
-To build the project run:
-
-```
-make
-```
-
-## Bootstrap infrastructure and run application
-
-This project requires docker and docker compose to run the required services.
-
-1. To run the services:
+1. Get app from github:
 
 ```
-docker-compose up
+git clone https://github.com/ineverbee/go-web.git
 ```
 
-2. To create database
+2. To run application and start server
 
 ```
-docker run --network="host" -it cockroachdb/cockroach:v19.2.1 sql --insecure -e "$(cat ./scripts/create.db.sql)"
+go run .
 ```
 
-3. Build [web application](ui/README.md)
+3. Navigate to [page](http://localhost:8080/)
 
-4. Start server
+## App on Heroku
 
-```
-go run main.go
-```
+![wall-go.herokuapp.com](https://wall-go.herokuapp.com/)
 
-5. Navigate to users list [page](http://127.0.0.1/users)
-
-## CI and Static Analysis
-
-### CI
-
-All pull requests will run through CI, which is currently hosted by Github-CI.
-Community contributors should be able to see the outcome of this process by looking at the checks on their PR.
-Please fix any issues to ensure a prompt review from members of the team.
-
-### Static Analysis
-
-This project uses the following static analysis tools.
-Failure during the running of any of these tools results in a failed build.
-Generally, code must be adjusted to satisfy these tools, though there are exceptions.
-
-- [go vet](https://golang.org/cmd/vet/) checks for Go code that should be considered incorrect.
-- [go fmt](https://golang.org/cmd/gofmt/) checks that Go code is correctly formatted.
-- [golangci-lint](https://github.com/golangci/golangci-lintt) checks for things like: unused code, code that can be simplified, code that is incorrect and code that will have performance issues.
-- [go mod tidy](https://tip.golang.org/cmd/go/#hdr-Add_missing_and_remove_unused_modules) ensures that the source code and go.mod agree.
-
-# Releasing
-
-When a new tag is pushed, the version is released with [goreleaser](https://github.com/goreleaser/goreleaser).
-
-```
-$ git tag -a v0.1.0 -m "First release"
-$ git push origin v0.1.0 # => want to release v0.1.0
-```
-
-# Tooling
-
-- IDE plugin [vscode-go](https://github.com/Microsoft/vscode-go)
-- Administration of cockroachdb [DBeaver](https://dbeaver.io/)
-- REST client [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)
-- Go testing in the browser [go-convey](https://github.com/smartystreets/goconvey)
-- Benchmarking [bombardier](http://github.com/codesenberg/bombardier)
-
-# Documentation
-
-```
-$ godoc github.com/starptech/go-web/pkg/controller
-$ godoc -http=:6060
-```
-
-Visit localhost:6060 and search for `go-web`
-
-# Benchmarking
-
-```
-$ bombardier -c 10 -n 10000 http://localhost:8080/users
-```
-
-# Cockroachdb Cluster overview
-
-http://localhost:8111/
-
-## Deploy on Heroku
-
-[![Heroku Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/StarpTech/go-web)
-
-# Further reading
-
-- http://www.alexedwards.net/blog/organising-database-access
-- https://12factor.net/
-- https://dev.otto.de/2015/09/30/on-monoliths-and-microservices/
