@@ -46,5 +46,5 @@ go run .
 
 ## App on Heroku
 
-![wall-go.herokuapp.com](https://wall-go.herokuapp.com/)
+[wall-go.herokuapp.com](https://wall-go.herokuapp.com/)
 
