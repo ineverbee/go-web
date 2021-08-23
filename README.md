@@ -44,7 +44,3 @@ go run .
 
 3. Navigate to [page](http://localhost:8080/)
 
-## App on Heroku
-
-[wall-go.herokuapp.com](https://wall-go.herokuapp.com/)
-
